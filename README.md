@@ -1,14 +1,21 @@
-# solid-in-vuejs
+# SOLID principles in Vue.js components
 
-This template should help get you started developing with Vue 3 in Vite.
+The goal of this project is to showcase how you can apply the SOLID principles to Vue.js components, by following a series of refactorings:
 
-## Recommended IDE Setup
+🎯 SRP - The Single Responsibility Principle
+  - [Extract LocalStorageProductsService](https://github.com/alonsogarciapablo/solid-in-vuejs/tree/step-1)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+🧵 ISP - The Interface Segregation Principle
+  - [Extract Products view and SearchBox component](https://github.com/alonsogarciapablo/solid-in-vuejs/tree/step-2)
 
-## Customize configuration
+🚪 OCP - The Open-Closed Principle
+  - [Extract get-product-list-item-component function](https://github.com/alonsogarciapablo/solid-in-vuejs/tree/step-3)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+🧩 LSP - The Liskov Substitution Principle
+  - [Create product-card that knows how to render a product card](https://github.com/alonsogarciapablo/solid-in-vuejs/tree/step-4)
+
+🔌 DIP - The Dependency Inversion Principle
+  - [Invert dependency between products view and productsService](https://github.com/alonsogarciapablo/solid-in-vuejs/tree/step-5)
 
 ## Project Setup
 
@@ -20,16 +27,4 @@ npm install
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
