@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted } from 'vue';
+  import { onMounted, inject } from 'vue';
   import ProductsView from './views/products.vue';
 
   const products = [
@@ -13,8 +13,10 @@
     { id: 8, name: 'Product 8', imageURL: 'https://placehold.co/200x200', type: 'fashion' }
   ]
 
+  const productsService = inject('productsService');
   onMounted(() => {
-    localStorage.setItem('products', JSON.stringify(products));
+    productsService.deleteAll();
+    products.forEach(product => productsService.create(product));
   });
 </script>
 

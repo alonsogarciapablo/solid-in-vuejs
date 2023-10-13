@@ -1,18 +1,17 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, inject } from 'vue';
   import SearchBox from '../components/search-box.vue';
   import ProductsList from '../components/products-list.vue';
-  import LocalStorageProductsService from '../services/local-storage-products-service';
 
   const products = ref([]);
-  const localStorageProductsService = new LocalStorageProductsService();
+  const productsService = inject('productsService');
 
   function onSearchQueryInput(searchQuery) {
-    products.value = localStorageProductsService.search(searchQuery);
+    products.value = productsService.search(searchQuery);
   }
 
   onMounted(() => {
-    products.value = localStorageProductsService.getAll();
+    products.value = productsService.getAll();
   });
 </script>
 
