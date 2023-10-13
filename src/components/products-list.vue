@@ -2,11 +2,12 @@
   import { onMounted, ref } from 'vue';
   import ElectronicsProductsListItem from './electronics-products-list-item.vue';
   import FashionProductsListItem from './fashion-products-list-item.vue';
+  import LocalStorageProductsService from '../services/local-storage-products-service'
 
   defineProps(['showSearchBox'])
   const searchQuery = ref(null);
-
   const products = ref([]);
+  const localStorageProductsService = new LocalStorageProductsService();
 
   function getProductComponent(productType) {
     switch(productType) {
@@ -23,18 +24,12 @@
     alert(`Product added to cart: ${ product.id }`);
   }
 
-  function fetchProducts() {
-    return JSON.parse(localStorage.getItem('products'));
-  }
-  
   function searchProducts() {
-    let newProducts = fetchProducts();
-    newProducts = newProducts.filter((product) => product.name.match(searchQuery.value));
-    products.value = newProducts;
+    products.value = localStorageProductsService.search(searchQuery.value);
   }
 
   onMounted(() => {
-    products.value = fetchProducts();
+    products.value = localStorageProductsService.getAll();
   });
 </script>
 
