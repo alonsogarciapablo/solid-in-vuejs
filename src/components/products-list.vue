@@ -1,19 +1,7 @@
 <script setup>
-  import ElectronicsProductsListItem from './electronics-products-list-item.vue';
-  import FashionProductsListItem from './fashion-products-list-item.vue';
+  import getProductListItemComponent from '../utils/get-product-list-item-component';
 
   defineProps(['products'])
-
-  function getProductComponent(productType) {
-    switch(productType) {
-      case 'electronics': 
-        return ElectronicsProductsListItem;
-      case 'fashion':
-        return FashionProductsListItem;
-    }
-
-    throw new Error(`Type: ${productType} is not supported`);
-  }
 
   function onProductAddToCart(product) {
     alert(`Product added to cart: ${ product.id }`);
@@ -23,7 +11,7 @@
 <template>
   <ul>
     <template v-for="product in products" :key="product.id">
-      <component :is="getProductComponent(product.type)" :product="product" @addToCart="onProductAddToCart"/>
+      <component :is="getProductListItemComponent(product.type)" :product="product" @addToCart="onProductAddToCart"/>
     </template>
   </ul>
 </template>
