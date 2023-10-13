@@ -1,6 +1,6 @@
 <script setup>
   import { onMounted } from 'vue';
-  import ProductList from './components/products-list.vue';
+  import ProductsView from './views/products.vue';
 
   const products = [
     { id: 1, name: 'Product 1', imageURL: 'https://placehold.co/200x400', type: 'electronics' },
@@ -24,7 +24,7 @@
   </header>
 
   <main>
-    <product-list :showSearchBox="true" />
+    <products-view />
   </main>
 </template>
 
