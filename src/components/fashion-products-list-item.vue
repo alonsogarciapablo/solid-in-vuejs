@@ -1,23 +1,13 @@
 <script setup>
-  const props = defineProps(['product'])
+  import ProductCard from './product-card.vue';
+  defineProps(['product'])
 </script>
 
 <template>
-  <li>
-    <div class="name">{{ props.product.name }}</div>
-    <div class="category">Fashion</div>
-    <img class="image" :src="props.product.imageURL" />
-  </li>
+  <product-card :product="product">
+    Fashion
+  </product-card>
 </template>
 
 <style scoped>
-  .name {
-    font-size: 1.6rem;
-  }
-  .category {
-    color: green;
-  }
-  .image {
-    width: 100%;
-  }
 </style>

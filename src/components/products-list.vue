@@ -29,11 +29,6 @@
     gap: var(--gap);
   }
   ul > li {
-    border: 1px dashed red;
     width: var(--column-width);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    box-sizing: border-box;
   }
 </style>
